@@ -1,9 +1,6 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@config '../../tailwind.config.ts';
 
 @theme inline {
   --color-background: var(--background);
@@ -12,15 +9,144 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+
+  .card {
+		@apply rounded-2xl bg-white p-4;
+	}
+
+	.card-header {
+		@apply text-lg font-bold underline mb-3;
+	}
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+	--color-primary-0: 13 14 17;
+	--color-primary-50: 246 245 245;
+	--color-primary-100: 237 237 237;
+	--color-primary-200: 221 221 221;
+	--color-primary-300: 204 204 204;
+	--color-primary-400: 179 179 179;
+	--color-primary-500: 153 153 153;
+	--color-primary-700: 102 102 102;
+	--color-primary-900: 51 51 51;
+	--color-primary-black: 13 14 17;
+	--secondary-color: 255 255 255;
+	--secondary-color-900: 226 232 240;
+	--secondary-color-800: 148 163 184;
+	--text-link: 33 150 243;
+	--blue: 11 75 173;
+	--bg-color: 15 23 42;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
 }
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+	color: rgb(var(--color-primary-800));
+
+	::-webkit-scrollbar {
+		width: 6px;
+	}
+
+::-webkit-scrollbar-track { 
+		border-radius: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: rgb(var(--text-link));
+		border-radius: 10px;
+	}
+}
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	height: 100%;
+	font-size: 14px;
+	background-color: rgb(var(--color-primary-800));
 }
+
+ul {
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+li::marker {
+	content: "•   ";
+}
+
+.background-grid {
+  background-color: rgb(var(--color-primary-0) / 70%);
+  background-image: linear-gradient(rgb(var(--color-primary-0) / 30%) 1px, transparent 1px), linear-gradient(90deg, rgb(var(--color-primary-0) / 30%) 1px, transparent 1px);
+  background-size: 10px 10px;
+}
+
+@keyframes fade-in-left {
+	0% {
+		transform: translateX(-50%);
+		/* stylelint-disable-next-line order/properties-order */
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		/* stylelint-disable-next-line order/properties-order */
+		opacity: 1;
+	}
+}
+
+@keyframes fade-in-right {
+	0% {
+		transform: translateX(50%);
+		/* stylelint-disable-next-line order/properties-order */
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateX(0);
+		/* stylelint-disable-next-line order/properties-order */
+		opacity: 1;
+	}
+}
+
+@keyframes fade-up {
+	0% {
+		transform: translateY(-50%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+
+@keyframes rotate {
+	to {
+		offset-distance: 100%;
+	}
+}
+

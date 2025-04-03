@@ -10,20 +10,26 @@
   },
   "dependencies": {
     "@types/react-vertical-timeline-component": "^3.3.6",
+    "framer-motion": "^12.6.3",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-draggable": "^4.4.6",
+    "react-parallax-mouse": "^2.1.0",
+    "react-type-animation": "^3.2.0",
     "react-vertical-timeline-component": "^3.5.3"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.1",
     "typescript": "^5"
-  }
+  },
+  "packageManager": "yarn@4.6.0+sha512.5383cc12567a95f1d668fbe762dfe0075c595b4bfff433be478dbbe24e05251a8e8c3eb992a986667c1d53b6c3a9c85b8398c35a960587fbd9fa3a0915406728"
 }
